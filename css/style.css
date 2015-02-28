@@ -1,0 +1,36 @@
+#imgDialog{
+	position: fixed;
+	z-index: 1000;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	background-color: #191919;
+}
+
+#imgDialog .imgexif-title{
+	height: 50px;
+}
+
+#imgDialog .imgexif-content{
+
+}
+
+#imgDialog .imgexif-content .imgexif-image{
+	position: absolute;
+	top:50px;
+	bottom:50px;
+	text-align: center;
+	left: 0px;
+	right: 320px;
+}
+
+#imgDialog .imgexif-info{
+	position: absolute;
+	top:0px;
+	bottom:0px;
+	right: 0px;
+	width: 320px;
+	background-color: #f5f5f5;
+}
