@@ -37,12 +37,13 @@ function read_exif($img_file){
 		$exif = exif_read_data($img_file, 'EXIF');
 
 		$exif_ = array (
+			'Camera'=>$exif['Model'],
 			'Make'=>$exif['Make'],
-			'Model'=>$exif['Model'],
+			'Lens'=>$exif['UndefinedTag:0xA434'],
+			'FocalLength'=>str_replace('/1', 'mm', $exif['FocalLength']) ,
 			'ExposureTime'=>$exif['ExposureTime'],
-			'FNumber'=>$exif['FNumber'],
+			'FNumber'=>'f/' . str_replace('/1', '', $exif['FNumber']),
 			'ISOSpeedRatings'=>$exif['ISOSpeedRatings'],
-			'FocalLength'=>$exif['FocalLength'],
 		);
 	
 	return json_encode($exif_);

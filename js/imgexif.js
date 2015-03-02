@@ -8,6 +8,9 @@ jQuery(document).ready(function($){
 
 			dialog.find(".imgexif-image").append("<img src='" + $(this).attr("href") + "' />");
 
+			//TODO close
+			dialog.find(".imgexif-title").append("close");
+
 			dialog.show();
 			$("html").css("overflow","hidden");
 
@@ -16,8 +19,6 @@ jQuery(document).ready(function($){
 			dialog.find(".imgexif-image img").css("height",imgHeight);
 
 			//exif information
-			//var exifs =$.parseJSON($(this).find("img").attr("rel"));
-
 			var imgUrl = $(this).attr("href");
 
 			$.post(ajax_object.ajax_url,
@@ -29,12 +30,14 @@ jQuery(document).ready(function($){
 				function(data){
 					var json_data = $.parseJSON(data);
 					dialog.find(".imgexif-info")
-						.append("<div><span class='exif-desc'>Camera maker</span><span class='exif-value'>"+ json_data.Make +"</span></div>")
-						.append("<div><span class='exif-desc'>Camera model</span><span class='exif-value'>"+ json_data.Model +"</span></div>")
-						.append("<div><span class='exif-desc'>Exposure time</span><span class='exif-value'>"+ json_data.ExposureTime +"</span></div>")
-						.append("<div><span class='exif-desc'>F-stop</span><span class='exif-value'>"+ json_data.FNumber +"</span></div>")
-						.append("<div><span class='exif-desc'>ISO speed</span><span class='exif-value'>"+ json_data.ISOSpeedRatings +"</span></div>")
-						.append("<div><span class='exif-desc'>Focal length</span><span class='exif-value'>"+ json_data.FocalLength +"</span></div>")
+						.append("<div class='exif-title'>Photo Detail</div>")
+						.append("<div><div class='exif-desc'>Camera</div><div class='exif-value'>"+ json_data.Camera +"</div></div>")
+						.append("<div><div class='exif-desc'>Lens</div><div class='exif-value'>"+ json_data.Lens +"</div></div>")
+						.append("<div><div class='exif-desc'>Focal length</div><div class='exif-value'>"+ json_data.FocalLength +"</div></div>")
+						.append("<div><div class='exif-desc'>Exposure</div><div class='exif-value'>"+ json_data.ExposureTime +"</div></div>")
+						.append("<div><div class='exif-desc'>F Number</div><div class='exif-value'>"+ json_data.FNumber +"</div></div>")
+						.append("<div><div class='exif-desc'>ISO</div><div class='exif-value'>"+ json_data.ISOSpeedRatings +"</div></div>")
+						.append("<div><div class='exif-desc'>Camera make</div><div class='exif-value'>"+ json_data.Make +"</div></div>")
 					;
 				}
 			);
