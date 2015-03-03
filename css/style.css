@@ -1,6 +1,6 @@
 #imgDialog{
 	position: fixed;
-	z-index: 1000;
+	z-index: 999999;
 	top:0;
 	bottom: 0;
 	left: 0;
@@ -11,6 +11,19 @@
 
 #imgDialog .imgexif-title{
 	height: 50px;
+	position: relative;
+}
+
+#imgDialog .imgexif-title .imgexif-close{
+	background: no-repeat url(button_img.png) -57px -338px;
+	bottom: 17px;
+	height: 16px;
+	margin: auto;
+	position: absolute;
+	right: 340px;
+	top: 17px;
+	width: 16px;
+	cursor:pointer;
 }
 
 #imgDialog .imgexif-content{

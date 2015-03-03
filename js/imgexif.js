@@ -1,15 +1,23 @@
 jQuery(document).ready(function($){
 
-	$(".entry-content a").each(function(){
-		$(this).click(function(e){
+	$("article.post a > img").each(function(){
+
+		var _this = $(this).parent();
+
+		_this.click(function(e){
 			e.preventDefault();
 
 			var dialog = $("<div id='imgDialog' title='Image'><div class='imgexif-content'><div class='imgexif-title'></div><div class='imgexif-image'></div><div class='imgexif-footer'></div></div><div class='imgexif-info'></div></div>").appendTo("body");
 
-			dialog.find(".imgexif-image").append("<img src='" + $(this).attr("href") + "' />");
+			dialog.find(".imgexif-image").append("<img src='" + _this.attr("href") + "' />");
 
 			//TODO close
-			dialog.find(".imgexif-title").append("close");
+			$("<div class='imgexif-close'></div>")
+				.appendTo(dialog.find(".imgexif-title"))
+				.bind("click",function(){
+					dialog.hide().remove();
+					$("html").css("overflow","auto");
+				});
 
 			dialog.show();
 			$("html").css("overflow","hidden");
