@@ -15,7 +15,7 @@
 }
 
 #imgDialog .imgexif-title .imgexif-close{
-	background: no-repeat url(button_img.png) -57px -338px;
+	background: no-repeat url(btn_close.png);
 	bottom: 17px;
 	height: 16px;
 	margin: auto;
